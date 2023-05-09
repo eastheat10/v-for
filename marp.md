@@ -171,6 +171,8 @@ This default mode is efficient, but only suitable when your list render output d
 
 ---
 
+#### 수정
+
 | Before | After |
 | :-: | :-: |
 | ![none-before](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fb8M8R3%2FbtseoYhSzyV%2FobEgKvnxh2bNcARSvIIBx0%2Fimg.png) | ![none-after](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcdyNqI%2FbtseqtOXOkk%2FGkbVL9zP2CntYDimv4kfH1%2Fimg.png) |
@@ -182,6 +184,17 @@ This default mode is efficient, but only suitable when your list render output d
 또한, 4번 인덱스가 3번으로 당겨지지만, 바로 4번 인덱스에 값이 채워진다.  
 
 따라서 키가 변하지 않으므로 `tr` 객체에는 변화가 없다. 그래서 `input` 태그는 변화가 없고, 내부의 `{{ fruit.name }}`만 변경된다.
+
+---
+
+#### 삭제
+
+| Before | After |
+| :-: | :-: |
+| ![none-before](https://user-images.githubusercontent.com/38150034/236971918-be198e4e-696a-4060-848a-5cdb7ff0c1c6.png) | ![none-after](https://user-images.githubusercontent.com/38150034/236971943-50f4faaf-05cd-401f-93c2-e6381915d2fa.png) |
+
+* 해당 아이템의 key(인덱스)가 변경되지 않고, 인덱스 순서에 맞게 변경된다.
+* 아이템 삭제 시 객체의 key인 인덱스가 함께 변경되므로 index key는 사용하지 않는 것이 좋다.
 
 ---
 
@@ -227,6 +240,8 @@ This default mode is efficient, but only suitable when your list render output d
 
 ---
 
+#### 수정
+
 `fruit.id`라는 고유값을 가진 `tr` 태그가 `shift` 후 다른 `fruit.id`를 가진 `tr` 태그로 채워지므로 `tr` 태그 자체가 다른 값으로 바뀌었다.  
 따라서 `input`태그 또한 함께 이동하였다.
 
@@ -235,6 +250,16 @@ This default mode is efficient, but only suitable when your list render output d
 | Before | After |
 | :-: | :-: |
 | ![object key before](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FYJDIt%2FbtserNsI3T3%2FFFYAyeIkrTKKPOZUGIUAfK%2Fimg.png) | ![object key after](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FB9UV8%2Fbtseqt2uO9m%2FxkzplA918X7mSBkBX2t1pK%2Fimg.png) |
+
+---
+
+#### 삭제
+
+| Before | After |
+| :-: | :-: |
+| ![none-before](https://user-images.githubusercontent.com/38150034/236971967-f0aa6f88-aa54-4873-8c40-1b03d8c6235b.png) | ![none-after](https://user-images.githubusercontent.com/38150034/236971985-07925a83-0379-4250-9235-05d6ca64fc4f.png) |
+
+* 객체의 key가 함께 변경되었다.
 
 ---
 

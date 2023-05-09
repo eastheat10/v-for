@@ -11,8 +11,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="fruit in fruits0">  <!-- eslint 빨간줄 -->
-            <td> - </td>
+          <tr v-for="fruit in fruits0">
+            <!-- eslint 빨간줄 -->
+            <td>-</td>
             <td>{{ fruit.name }}</td>
             <td>
               <input type="number" />
@@ -32,6 +33,7 @@
             <th>Index</th>
             <th>Name</th>
             <th>Value</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -40,6 +42,9 @@
             <td>{{ fruit.name }}</td>
             <td>
               <input type="number" />
+            </td>
+            <td>
+              <button @click="deleteFruit1(fruit)">X</button>
             </td>
           </tr>
         </tbody>
@@ -56,6 +61,7 @@
             <th>Object Id</th>
             <th>Name</th>
             <th>Value</th>
+            <th>Delete</th>
           </tr>
         </thead>
         <tbody>
@@ -63,6 +69,9 @@
             <td>{{ fruit.id }}</td>
             <td>{{ fruit.name }}</td>
             <td><input type="number" /></td>
+            <td>
+              <button @click="deleteFruit2(fruit)">X</button>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -72,55 +81,54 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue'
 
 const fruits0 = ref([
-  { id: 1, name: "apple" },
-  { id: 2, name: "orange" },
-  { id: 3, name: "melon" },
-  { id: 4, name: "grape" },
-  { id: 5, name: "mango" }
-]);
+  { id: 1, name: 'apple' },
+  { id: 2, name: 'orange' },
+  { id: 3, name: 'melon' },
+  { id: 4, name: 'grape' },
+  { id: 5, name: 'mango' }
+])
 
 const fruits1 = ref([
-  { id: 1, name: "apple" },
-  { id: 2, name: "orange" },
-  { id: 3, name: "melon" },
-  { id: 4, name: "grape" },
-  { id: 5, name: "mango" }
-]);
+  { id: 1, name: 'apple' },
+  { id: 2, name: 'orange' },
+  { id: 3, name: 'melon' },
+  { id: 4, name: 'grape' },
+  { id: 5, name: 'mango' }
+])
 
 const fruits2 = ref([
-  { id: "a", name: "apple" },
-  { id: "b", name: "orange" },
-  { id: "c", name: "melon" },
-  { id: "d", name: "grape" },
-  { id: "e", name: "mango" }
-]);
+  { id: 'a', name: 'apple' },
+  { id: 'b', name: 'orange' },
+  { id: 'c', name: 'melon' },
+  { id: 'd', name: 'grape' },
+  { id: 'e', name: 'mango' }
+])
 
 const shift0 = () => {
-  fruits0.value.push(fruits0.value.shift());
-};
+  fruits0.value.push(fruits0.value.shift())
+}
 
-const shift1 = () => {
-  fruits1.value.push(fruits1.value.shift());
-};
+const shift1 = () => fruits1.value.push(fruits1.value.shift())
 
-const shift2 = () => {
-  fruits2.value.push(fruits2.value.shift());
-};
+const shift2 = () => fruits2.value.push(fruits2.value.shift())
+
+const deleteFruit1 = (fruit) => (fruits1.value = fruits1.value.filter((f) => f.id !== fruit.id))
+const deleteFruit2 = (fruit) => (fruits2.value = fruits2.value.filter((f) => f.id !== fruit.id))
 </script>
 
 <style>
 table {
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
 
-th {   
-    border: 1px solid #ccc;
+th {
+  border: 1px solid #ccc;
 }
 
 td {
-    border: 1px solid #ccc;
+  border: 1px solid #ccc;
 }
 </style>
