@@ -139,6 +139,7 @@ This default mode is efficient, but only suitable when your list render output d
         <th>Index</th>
         <th>Name</th>
         <th>Value</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -147,6 +148,9 @@ This default mode is efficient, but only suitable when your list render output d
         <td>{{ fruit.name }}</td>
         <td>
           <input type="number" />
+        </td>
+        <td>
+          <button @click="deleteFruit2(fruit)">X</button>
         </td>
       </tr>
     </tbody>
@@ -166,6 +170,8 @@ This default mode is efficient, but only suitable when your list render output d
   ]);
 
   const shift1 = () => fruits1.value.push(fruits1.value.shift());
+  const deleteFruit1 = (fruit) => (fruits1.value = fruits1.value.filter((f) => f.id !== fruit.id))
+  const deleteFruit2 = (fruit) => (fruits2.value = fruits2.value.filter((f) => f.id !== fruit.id));
 </script>
 ```
 
@@ -210,6 +216,7 @@ This default mode is efficient, but only suitable when your list render output d
         <th>Object Id</th>
         <th>Name</th>
         <th>Value</th>
+        <th>Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -217,6 +224,9 @@ This default mode is efficient, but only suitable when your list render output d
         <td>{{ fruit.id }}</td>
         <td>{{ fruit.name }}</td>
         <td><input type="number" /></td>
+        <td>
+          <button @click="deleteFruit2(fruit)">X</button>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -235,6 +245,8 @@ This default mode is efficient, but only suitable when your list render output d
   ]);
 
   const shift2 = () => fruits2.value.push(fruits2.value.shift());
+
+  const deleteFruit2 = (fruit) => (fruits2.value = fruits2.value.filter((f) => f.id !== fruit.id))
 </script>
 ```
 
